@@ -146,7 +146,8 @@ function App() {
     setLoading(true);
 
     try {
-      const { data } = await axios.post('/api/trips', {
+            const apiBase = import.meta.env.VITE_API_URL || '';
+      const { data } = await axios.post(`${apiBase}/api/trips`, {
         ...form,
         budget: Number(form.budget),
         travelers: Number(form.travelers),
